@@ -1,6 +1,11 @@
 name: diabetes-training-env
 dependencies:
 - scikit-learn
+- python=3.6.2
+- pip=20.2.4
+- numpy
 - pip:
   - azureml-sdk
   - azureml-widgets
+  - azureml-defaults
+  - inference-schema[numpy-support]
