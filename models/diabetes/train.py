@@ -3,6 +3,7 @@
 
 import pickle
 import os
+import joblib
 import numpy as np
 from sklearn.datasets import load_diabetes
 from sklearn.linear_model import Ridge
@@ -42,6 +43,6 @@ for alpha in alphas:
     # Save model in the outputs folder so it automatically get uploaded when running on AML Compute
     model_file_name = 'ridge_{0:.2f}.pkl'.format(alpha)
     with open(os.path.join('./outputs/', model_file_name), 'wb') as file:
-        pickle.dump(reg, file)
+        joblib.dump(reg, file)
 
     print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
