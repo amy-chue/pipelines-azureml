@@ -14,6 +14,11 @@ if Version(sklearnver) < Version("0.23.0"):
     from sklearn.externals import joblib
 else:
     import joblib
+    
+try:
+    from collections.abc import Iterator
+except ImportError:
+    from collections import Iterator
 
 os.makedirs('./outputs', exist_ok=True)
 
