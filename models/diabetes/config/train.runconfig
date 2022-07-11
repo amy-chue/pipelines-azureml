@@ -3,7 +3,7 @@ arguments: []
 framework: Python
 environment:
   python:
-    userManagedDependencies: false
+    userManagedDependencies: true
     interpreterPath: python
     condaDependenciesFile: config/train-conda.yml
   docker:
