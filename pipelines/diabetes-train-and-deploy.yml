@@ -49,7 +49,7 @@ steps:
     workingDirectory: $(ml-path)
     scriptLocation: inlineScript
     scriptType: 'bash'
-    inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json --debug --verbose train.py'
+    inlineScript: 'az ml run submit-script -c config/train-conda --ct $(ml-ct) -e $(ml-exp) -t run.json --debug --verbose train.py'
 
 # Add potential approval step before registration of model
 
