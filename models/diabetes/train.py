@@ -10,9 +10,6 @@ import os
 import numpy as np
 from sklearn import __version__ as sklearnver
 from packaging.version import Version
-if Version(sklearnver) < Version("0.23.0"):
-    from sklearn.externals import joblib
-else:
     import joblib
     
 try:
