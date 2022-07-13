@@ -1,45 +1,22 @@
 # Copyright (c) Microsoft. All rights reserved.
 # Licensed under the MIT license.
 
-
+import argparse
 import os
-import numpy as np
-from sklearn.datasets import load_diabetes
-from sklearn.linear_model import Ridge
-from sklearn.metrics import mean_squared_error
-from sklearn.model_selection import train_test_split
-from azureml.core.run import Run
-import joblib
-from utils import mylib
-from collections.abc import Iterable
 
-os.makedirs('./outputs', exist_ok=True)
+print("In train.py")
+print("As a data scientist, this is where I use my training code.")
 
-X, y = load_diabetes(return_X_y=True)
+parser = argparse.ArgumentParser("train")
 
-run = Run.get_context()
+parser.add_argument("--input_data", type=str, help="input data")
+parser.add_argument("--output_train", type=str, help="output_train directory")
 
-X_train, X_test, y_train, y_test = train_test_split(X, y,
-                                                    test_size=0.2,
-                                                    random_state=0)
-data = {"train": {"X": X_train, "y": y_train},
-        "test": {"X": X_test, "y": y_test}}
+args = parser.parse_args()
 
-# list of numbers from 0.0 to 1.0 with a 0.05 interval
-alphas = np.arange(0.0, 1.0, 0.05)
+print("Argument 1: %s" % args.input_data)
+print("Argument 2: %s" % args.output_train)
 
-
-reg = Ridge(alpha=0.95)
-reg.fit(data["train"]["X"], data["train"]["y"])
-
-preds = reg.predict(data["test"]["X"])
-mse = mean_squared_error(preds, data["test"]["y"])
-run.log('alpha', 0.95)
-run.log('mse', mse)
-
-    # Save model in the outputs folder so it automatically get uploaded when running on AML Compute
-model_file_name = 'ridge_0.95.pkl'.format(0.95)
-with open(model_file_name, "wb") as file:	
-    joblib.dump(value=reg, filename=os.path.join('./outputs/',model_file_name))
-    
-print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(0.95, mse))
+if not (args.output_train is None):
+    os.makedirs(args.output_train, exist_ok=True)
+    print("%s created" % args.output_train)
