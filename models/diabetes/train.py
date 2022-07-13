@@ -11,6 +11,7 @@ from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
 import joblib
 from utils import mylib
+from collections import Iterable
 
 os.makedirs('./outputs', exist_ok=True)
 
