@@ -11,13 +11,7 @@ from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
 import joblib
 from utils import mylib
-
-try:
-    # Python <= 3.9
-    from collections import Iterable
-except ImportError:
-    # Python > 3.9
-    from collections.abc import Iterable
+from collections.abc import Iterable
 
 os.makedirs('./outputs', exist_ok=True)
 
