@@ -11,4 +11,4 @@ dependencies:
       - 'inference-schema[numpy-support]'
       - docker<5.0.0 # this is the fix needed
       - PySocks==1.7.1
-      - msal-extensions=0.3.0
+      - msal-extensions=0.3.1
