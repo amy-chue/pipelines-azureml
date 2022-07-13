@@ -5,5 +5,5 @@ dependencies:
 - pip:
   - azureml-defaults
   - inference-schema[numpy-support]
-  - scikit-learn
-  - numpy
+  - scikit-learn==1.1.1
+  - numpy==1.18
