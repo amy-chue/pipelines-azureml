@@ -10,4 +10,4 @@ dependencies:
       - azureml-defaults
       - 'inference-schema[numpy-support]'
       - docker<5.0.0 # this is the fix needed
-      - PySocks==3.9
+      - PySocks==1.7.1
