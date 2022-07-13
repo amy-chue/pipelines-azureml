@@ -12,3 +12,4 @@ dependencies:
       - docker<5.0.0 # this is the fix needed
       - PySocks==1.7.1
       - msal-extensions==0.3.1
+      - urllib3==1.26.10
