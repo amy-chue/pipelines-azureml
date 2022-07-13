@@ -1,7 +1,7 @@
 name: diabetes-training-env
 dependencies:
-- python=3.10.4
-- pip=22.1.2
+- python=3.8.6
+- pip=20.2.4
 - numpy
 - scikit-learn
 - pip:
