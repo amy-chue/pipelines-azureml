@@ -12,10 +12,14 @@ from azureml.core.run import Run
 import joblib
 from utils import mylib
 
-try:
-    from collections.abc import Iterable
-except ImportError:
-    from collections import Iterable
+import collections.abc
+#hyper needs the four following aliases to be done manually.
+collections.Iterable = collections.abc.Iterable
+collections.Mapping = collections.abc.Mapping
+collections.MutableSet = collections.abc.MutableSet
+collections.MutableMapping = collections.abc.MutableMapping
+#Now import hyper
+import hyper
 
 os.makedirs('./outputs', exist_ok=True)
 
