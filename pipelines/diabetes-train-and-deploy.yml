@@ -13,18 +13,12 @@ trigger:
 
 pool:
   vmImage: 'Ubuntu-latest'
-  strategy:
-    matrix:
-      Python38:
-        python.version: '3.8'
-
-  steps:
-  - task: UsePythonVersion@0
-    displayName: 'Use Python $(python.version)'
-    inputs:
-      versionSpec: '$(python.version)'
 
 steps:
+- task: UsePythonVersion@0
+  inputs:
+    versionSpec: '3.8'
+
 - task: AzureCLI@2
   displayName: 'Install AML CLI'
   inputs:
