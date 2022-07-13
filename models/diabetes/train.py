@@ -8,7 +8,7 @@ from sklearn.model_selection import train_test_split
 from azureml.core.run import Run
 import os
 import numpy as np
-from sklearn import __version__ as sklearnver
+# from sklearn import __version__ as sklearnver
 from packaging.version import Version
     import joblib
     
