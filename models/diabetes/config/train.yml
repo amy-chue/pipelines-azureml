@@ -3,3 +3,4 @@ dependencies:
 - python=3.10.4
 - pip:
   - azureml-defaults
+  - numpy==1.22.1
