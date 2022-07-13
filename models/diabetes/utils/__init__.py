@@ -3,4 +3,3 @@
 
 # This is just a dummy init
 
-from collections.abc import Iterable
