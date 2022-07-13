@@ -12,12 +12,6 @@ from azureml.core.run import Run
 import joblib
 from utils import mylib
 
-try:
-    from collections.abc import Iterable
-except ImportError:
-    from collections import Iterable
-
-
 os.makedirs('./outputs', exist_ok=True)
 
 X, y = load_diabetes(return_X_y=True)
