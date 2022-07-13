@@ -12,14 +12,11 @@ from azureml.core.run import Run
 import joblib
 from utils import mylib
 
-import collections.abc
-#hyper needs the four following aliases to be done manually.
-collections.Iterable = collections.abc.Iterable
-collections.Mapping = collections.abc.Mapping
-collections.MutableSet = collections.abc.MutableSet
-collections.MutableMapping = collections.abc.MutableMapping
-#Now import hyper
-import hyper
+try:
+    from collections.abc import Iterable
+except ImportError:
+    from collections import Iterable
+
 
 os.makedirs('./outputs', exist_ok=True)
 
@@ -34,7 +31,7 @@ data = {"train": {"X": X_train, "y": y_train},
         "test": {"X": X_test, "y": y_test}}
 
 # list of numbers from 0.0 to 1.0 with a 0.05 interval
-alphas = mylib.get_alphas()
+alphas = np.arange(0.0, 1.0, 0.05)
 
 for alpha in alphas:
     # Use Ridge algorithm to create a regression model
