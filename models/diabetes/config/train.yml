@@ -9,3 +9,4 @@ dependencies:
       - azureml-widgets
       - azureml-defaults
       - 'inference-schema[numpy-support]'
+      - docker<5.0.0 # this is the fix needed
