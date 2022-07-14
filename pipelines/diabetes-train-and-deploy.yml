@@ -19,6 +19,22 @@ steps:
   inputs:
     versionSpec: '3.8'
 
+- task: PythonScript@0
+  inputs:
+    scriptSource: 'inline'
+    script: |
+      print('Hello world 1')
+      print('Hello world 2')
+
+- script: sudo apt-get remove -y azure-cli
+  displayName: 'remove buggy azure-cli'
+
+- script: python -m pip install --upgrade pip setuptools wheel
+  displayName: 'upgrade necessary tools'
+  
+- script: python -m pip install azure-cli
+  displayName: 'install working azure-cli'
+
 - task: AzureCLI@2
   displayName: 'Install AML CLI'
   inputs:
@@ -53,7 +69,7 @@ steps:
     workingDirectory: $(ml-path)
     scriptLocation: inlineScript
     scriptType: 'bash'
-    inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json --debug --verbose train.py'
+    inlineScript: 'az ml run submit-script -c config/train --ct $(ml-ct) -e $(ml-exp) -t run.json train.py'
 
 # Add potential approval step before registration of model
 
