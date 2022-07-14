@@ -1,9 +1,15 @@
 name: diabetes-training-env
 dependencies:
-  - python=3.6.2
+  - scikit-learn
+  - python=3.8.13
   - pip=20.2.4
+  - numpy
   - pip:
-    - azureml-defaults
-    - scikit-learn==0.21.3
-    - numpy
-    - inference-schema[numpy-support]
+      - azureml-sdk
+      - azureml-widgets
+      - azureml-defaults
+      - 'inference-schema[numpy-support]'
+      - docker<5.0.0
+      - PySocks==1.7.1
+      - msal-extensions==0.3.1
+      - urllib3==1.26.9
