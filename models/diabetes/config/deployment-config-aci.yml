@@ -2,3 +2,6 @@ containerResourceRequirements:
   cpu: 1
   memoryInGB: 0.5
 computeType: ACI
+authEnabled: False
+sslEnabled: False
+appInsightsEnabled: False
