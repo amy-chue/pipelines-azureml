@@ -49,3 +49,9 @@ for alpha in alphas:
         joblib.dump(value=reg, filename=os.path.join('./outputs/',model_file_name))
     
     print('alpha is {0:.2f}, and mse is {1:0.2f}'.format(alpha, mse))
+
+# opening the file
+open_model = joblib.load('ridge_0.95.pkl')
+# check prediction X=5000
+check_pred = open_model.predict([[5000]])
+print('PredictValue:'+ check_pred)
